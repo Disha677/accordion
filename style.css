@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    color: black;
+}
+body{
+    background-color: #fffdfb;
+}
+.accordion{
+   width: 50%;
+   margin: 160px auto 0 auto;
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+}
+.item{
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.1) ;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 30px;
+  padding: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+h2{
+    font-size: 24px;
+    text-transform: capitalize;
+}
+.number{
+    font-size: 32px;
+}
+.icon{
+    width: 24px;
+    height: 24px;
+}
+.hidden{
+    grid-column: 2/3;
+    display: none;
+}
+.hidden p{
+    line-height: 1.6;
+    margin-bottom: 14px;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    word-spacing: 3px;
+}
+.hidden ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+.hidden ul li{
+    margin-left: 16px;
+    line-height: 1.5;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    word-spacing: 3px;
+}
+.active{
+    position: relative;
+}
+.active::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  border-top: 3px solid rgb(153, 153, 245);
+  animation: borderline 1s linear forwards;
+  /* forwards is used so that it will retain the position as it was after the animation */
+}
+@keyframes borderline {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+}
+.active .hidden{
+    display: block; /* if active class is present i need to block the display of hidden class  */
+}
+
+@media (max-width:600px){
+    .accordion{
+        width: 30%;
+    }
+    .item{
+        padding: 15px;
+    }
+    h2{
+        font-size: 10px;
+    }
+    .number{
+        font-size: 10px;
+    }
+    .icon{
+        font-size: 6px;
+    }
+}
+@media (max-width:520px) {
+    .item{
+        height: 30%;
+    }
+   h2{
+    font-size: 10px;
+   }
+   .number, .icon{
+    font-size: 10px;
+   }
+}
+@media (max-width:450px) {
+    .accordion{
+        margin-right: 45%;
+    }
+    .item{
+        width: 50vw;
+    }
+    
+}
+@media (max-width:400px) {
+    .accordion{
+        margin-right: 50%;
+    }
+    .item{
+        width: 50vw;
+    }
+    
+}
